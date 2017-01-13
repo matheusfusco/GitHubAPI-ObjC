@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RepositoryTableViewController.h
 //  desafio-ios
 //
 //  Created by Matheus Pacheco Fusco on 23/08/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface RepositoryTableViewController : UITableViewController
 
 @end
-
