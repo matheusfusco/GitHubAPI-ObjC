@@ -14,9 +14,6 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - KIF (3.5.0):
-    - KIF/Core (= 3.5.0)
-  - KIF/Core (3.5.0)
   - Mantle (2.0.7):
     - Mantle/extobjc (= 2.0.7)
   - Mantle/extobjc (2.0.7)
@@ -27,18 +24,16 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - KIF
   - Mantle
   - MBProgressHUD
   - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  KIF: a6dfc49c064217f4ac5f8d37c4babc17d2818d29
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: c5e10fbe00f5858ac4e446953619aac06f717654
+PODFILE CHECKSUM: b5b6d3508aa4eb683bc3f78c10ba57f27155a1a4
 
 COCOAPODS: 1.0.1

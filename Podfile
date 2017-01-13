@@ -10,7 +10,6 @@ target 'desafio-ios' do
 	pod 'SDWebImage'
 	pod 'Mantle'
 	pod 'MBProgressHUD'
-	pod ‘KIF’
 
   target 'desafio-iosTests' do
     inherit! :search_paths
