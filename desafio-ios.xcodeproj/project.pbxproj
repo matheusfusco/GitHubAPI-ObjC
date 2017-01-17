@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4F52E42CC5076A8EE7519D2F /* libPods-desafio-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E9F05CB823D03698CC185C /* libPods-desafio-ios.a */; };
+		5E02ADCF1E2E80C20045DDB5 /* RepositoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E02ADCE1E2E80C20045DDB5 /* RepositoryModel.m */; };
+		5EDE42F01E2D0E80008ED7F4 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDE42EF1E2D0E80008ED7F4 /* APIManager.m */; };
+		5EDE42F41E2D638B008ED7F4 /* RepositoryService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDE42F31E2D638B008ED7F4 /* RepositoryService.m */; };
 		E04CDB13941D664BD3275C40 /* libPods-desafio-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4C2328FE19AF5E5627824D /* libPods-desafio-iosTests.a */; };
 		F189C8A423793722CCA7CC62 /* libPods-desafio-iosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45478599DD58D608D4DBD9E7 /* libPods-desafio-iosUITests.a */; };
 		F93E48501D6CA4D200A05B7A /* gitFork.png in Resources */ = {isa = PBXBuildFile; fileRef = F93E484F1D6CA4D200A05B7A /* gitFork.png */; };
@@ -53,6 +56,13 @@
 		0F595A7D09D4E387F3862A42 /* Pods-desafio-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosTests/Pods-desafio-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		45478599DD58D608D4DBD9E7 /* libPods-desafio-iosUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-desafio-iosUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A55142F0A29BE2F2BBB892E /* Pods-desafio-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-ios/Pods-desafio-ios.release.xcconfig"; sourceTree = "<group>"; };
+		5E02ADCD1E2E80C20045DDB5 /* RepositoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryModel.h; sourceTree = "<group>"; };
+		5E02ADCE1E2E80C20045DDB5 /* RepositoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryModel.m; sourceTree = "<group>"; };
+		5EDE42EE1E2D0E80008ED7F4 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		5EDE42EF1E2D0E80008ED7F4 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		5EDE42F11E2D0E96008ED7F4 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		5EDE42F21E2D638B008ED7F4 /* RepositoryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryService.h; sourceTree = "<group>"; };
+		5EDE42F31E2D638B008ED7F4 /* RepositoryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryService.m; sourceTree = "<group>"; };
 		8C1723F5FF39D627CEA4BD57 /* Pods-desafio-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosUITests/Pods-desafio-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A1B8B18E5E3C2F226AB70965 /* Pods-desafio-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosTests/Pods-desafio-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7B7976B742DC8292DC6A584 /* Pods-desafio-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-ios/Pods-desafio-ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +148,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5EDE42EC1E2D0D77008ED7F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F93E48581D6CAB0900A05B7A /* Repository.h */,
+				F93E48591D6CAB0900A05B7A /* Repository.m */,
+				F95787111D6DE75E001E7D3D /* PullRequest.h */,
+				F95787121D6DE75E001E7D3D /* PullRequest.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5EDE42ED1E2D0D97008ED7F4 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5EDE42F11E2D0E96008ED7F4 /* Constants.h */,
+				5EDE42EE1E2D0E80008ED7F4 /* APIManager.h */,
+				5EDE42EF1E2D0E80008ED7F4 /* APIManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
 		8547D8E7FBA7EFBEDD4F5910 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,10 +197,12 @@
 			children = (
 				F93E485B1D6CAB6E00A05B7A /* RepositoryTableViewController.h */,
 				F93E485C1D6CAB6E00A05B7A /* RepositoryTableViewController.m */,
+				5E02ADCD1E2E80C20045DDB5 /* RepositoryModel.h */,
+				5E02ADCE1E2E80C20045DDB5 /* RepositoryModel.m */,
+				5EDE42F21E2D638B008ED7F4 /* RepositoryService.h */,
+				5EDE42F31E2D638B008ED7F4 /* RepositoryService.m */,
 				F93E485F1D6CAFC600A05B7A /* RepositoryTableViewCell.h */,
 				F93E48601D6CAFC600A05B7A /* RepositoryTableViewCell.m */,
-				F93E48581D6CAB0900A05B7A /* Repository.h */,
-				F93E48591D6CAB0900A05B7A /* Repository.m */,
 			);
 			name = Repository;
 			sourceTree = "<group>";
@@ -181,8 +214,6 @@
 				F957870F1D6DE74F001E7D3D /* PullRequestTableViewController.m */,
 				F957870B1D6DE742001E7D3D /* PullRequestTableViewCell.h */,
 				F957870C1D6DE742001E7D3D /* PullRequestTableViewCell.m */,
-				F95787111D6DE75E001E7D3D /* PullRequest.h */,
-				F95787121D6DE75E001E7D3D /* PullRequest.m */,
 			);
 			name = "Pull Request";
 			sourceTree = "<group>";
@@ -214,8 +245,10 @@
 			children = (
 				F98AC0D91D6C90D800656769 /* AppDelegate.h */,
 				F98AC0DA1D6C90D800656769 /* AppDelegate.m */,
+				5EDE42ED1E2D0D97008ED7F4 /* Manager */,
 				F93E485E1D6CAB7400A05B7A /* Repository */,
 				F95787141D6DE769001E7D3D /* Pull Request */,
+				5EDE42EC1E2D0D77008ED7F4 /* Model */,
 				F98AC0DF1D6C90D800656769 /* Main.storyboard */,
 				F98AC0E21D6C90D800656769 /* Assets.xcassets */,
 				F98AC0E41D6C90D800656769 /* LaunchScreen.storyboard */,
@@ -518,10 +551,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E02ADCF1E2E80C20045DDB5 /* RepositoryModel.m in Sources */,
 				F95787101D6DE74F001E7D3D /* PullRequestTableViewController.m in Sources */,
 				F98AC0DB1D6C90D800656769 /* AppDelegate.m in Sources */,
+				5EDE42F01E2D0E80008ED7F4 /* APIManager.m in Sources */,
 				F93E485D1D6CAB6E00A05B7A /* RepositoryTableViewController.m in Sources */,
 				F98AC0D81D6C90D800656769 /* main.m in Sources */,
+				5EDE42F41E2D638B008ED7F4 /* RepositoryService.m in Sources */,
 				F93E48611D6CAFC600A05B7A /* RepositoryTableViewCell.m in Sources */,
 				F957870D1D6DE742001E7D3D /* PullRequestTableViewCell.m in Sources */,
 				F95787131D6DE75E001E7D3D /* PullRequest.m in Sources */,

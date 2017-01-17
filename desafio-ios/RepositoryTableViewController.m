@@ -9,12 +9,6 @@
 #import "RepositoryTableViewController.h"
 #import "RepositoryTableViewCell.h"
 #import "Repository.h"
-
-#import "AFURLRequestSerialization.h"
-#import "AFURLSessionManager.h"
-
-#import "MBProgressHUD.h"
-
 #import "PullRequestTableViewController.h"
 
 @interface RepositoryTableViewController ()
@@ -22,6 +16,7 @@
     Repository * repository;
     NSMutableArray * repositories;
     NSInteger page;
+    RepositoryModel * model;
 }
 
 @end
@@ -30,9 +25,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     page = 1;
     repositories = [[NSMutableArray alloc] init];
-    [self downloadRepositories];
+    model = [[RepositoryModel alloc] init];
+    model.delegate = self;
+    [model fetchRepositories:page];
 }
 
 #pragma mark - TableView Data Source & Delegate Methods
@@ -79,45 +77,19 @@
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([indexPath isEqual:[NSIndexPath indexPathForRow:[self tableView:self.tableView numberOfRowsInSection:0]-1 inSection:0]])
+    if ([indexPath isEqual:[NSIndexPath indexPathForRow:[self tableView:self.tableView numberOfRowsInSection:0] -1 inSection: 0]])
     {
         page += 1;
-        [self downloadRepositories];
+        [model fetchRepositories: page];
     }
 }
 
-#pragma mark - Connection Methods
-
--(void)downloadRepositories
-{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager * manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSString * URLString = [NSString stringWithFormat:@"https://api.github.com/search/repositories?q=language:Java&sort=stars&page=%ld", (long)page];
-    NSURL *URL = [NSURL URLWithString:URLString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else {
-            
-            NSMutableArray * repoArray = [[NSMutableArray alloc] initWithArray:[responseObject objectForKey:@"items"]];
-            
-            for (int i = 0; i < repoArray.count; i++) {
-                NSDictionary * dict = [[NSDictionary alloc] init];
-                dict = [repoArray objectAtIndex:i];
-                
-                Repository * rp = [MTLJSONAdapter modelOfClass:[Repository class] fromJSONDictionary:dict error:&error];
-                [repositories addObject:rp];
-            }
-            [self.tableView reloadData];
-        }
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-    }];
-    [dataTask resume];
+#pragma mark - Custom Delegate Methods
+-(void)fetchedRepositories:(NSMutableArray *)repos {
+    for (Repository * repo in repos) {
+        [repositories addObject:repo];
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - Navigation

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RepositoryModel.h"
 
-@interface RepositoryTableViewController : UITableViewController
+@interface RepositoryTableViewController : UITableViewController <RepositoryDelegate>
 
 @end
