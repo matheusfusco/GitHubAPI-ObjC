@@ -32,7 +32,7 @@
 		F98AC0E61D6C90D800656769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98AC0E41D6C90D800656769 /* LaunchScreen.storyboard */; };
 		F98AC0F11D6C90D900656769 /* desafio_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F98AC0F01D6C90D900656769 /* desafio_iosTests.m */; };
 		F98AC0FC1D6C90D900656769 /* desafio_iosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F98AC0FB1D6C90D900656769 /* desafio_iosUITests.m */; };
-		F98AC10A1D6C918A00656769 /* gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F98AC1091D6C918A00656769 /* gitignore */; };
+		F98AC10A1D6C918A00656769 /* .. in Resources */ = {isa = PBXBuildFile; fileRef = F98AC1091D6C918A00656769 /* .. */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +58,9 @@
 		5A55142F0A29BE2F2BBB892E /* Pods-desafio-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-ios/Pods-desafio-ios.release.xcconfig"; sourceTree = "<group>"; };
 		5E02ADCD1E2E80C20045DDB5 /* RepositoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryModel.h; sourceTree = "<group>"; };
 		5E02ADCE1E2E80C20045DDB5 /* RepositoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryModel.m; sourceTree = "<group>"; };
+		5E02ADD01E2EA29D0045DDB5 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		5EDE42EE1E2D0E80008ED7F4 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		5EDE42EF1E2D0E80008ED7F4 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
-		5EDE42F11E2D0E96008ED7F4 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		5EDE42F21E2D638B008ED7F4 /* RepositoryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryService.h; sourceTree = "<group>"; };
 		5EDE42F31E2D638B008ED7F4 /* RepositoryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryService.m; sourceTree = "<group>"; };
 		8C1723F5FF39D627CEA4BD57 /* Pods-desafio-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosUITests/Pods-desafio-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		F98AC0F71D6C90D900656769 /* desafio-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98AC0FB1D6C90D900656769 /* desafio_iosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = desafio_iosUITests.m; sourceTree = "<group>"; };
 		F98AC0FD1D6C90D900656769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F98AC1091D6C918A00656769 /* gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = gitignore; path = ../gitignore; sourceTree = "<group>"; };
+		F98AC1091D6C918A00656769 /* .. */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ..; path = ../..; sourceTree = "<group>"; };
 		F9C4A4D028B6D1C1492394AE /* Pods-desafio-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosUITests/Pods-desafio-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,17 +156,17 @@
 				F95787111D6DE75E001E7D3D /* PullRequest.h */,
 				F95787121D6DE75E001E7D3D /* PullRequest.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5EDE42ED1E2D0D97008ED7F4 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				5EDE42F11E2D0E96008ED7F4 /* Constants.h */,
+				5E02ADD01E2EA29D0045DDB5 /* Constants.h */,
 				5EDE42EE1E2D0E80008ED7F4 /* APIManager.h */,
 				5EDE42EF1E2D0E80008ED7F4 /* APIManager.m */,
 			);
-			name = Manager;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		8547D8E7FBA7EFBEDD4F5910 /* Pods */ = {
@@ -189,7 +189,7 @@
 				F93E48531D6CA4DB00A05B7A /* userPhoto.png */,
 				F93E48511D6CA4D600A05B7A /* gitStar.png */,
 			);
-			name = Imagens;
+			path = Imagens;
 			sourceTree = "<group>";
 		};
 		F93E485E1D6CAB7400A05B7A /* Repository */ = {
@@ -204,7 +204,7 @@
 				F93E485F1D6CAFC600A05B7A /* RepositoryTableViewCell.h */,
 				F93E48601D6CAFC600A05B7A /* RepositoryTableViewCell.m */,
 			);
-			name = Repository;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		F95787141D6DE769001E7D3D /* Pull Request */ = {
@@ -216,6 +216,7 @@
 				F957870C1D6DE742001E7D3D /* PullRequestTableViewCell.m */,
 			);
 			name = "Pull Request";
+			path = PullRequest;
 			sourceTree = "<group>";
 		};
 		F98AC0CA1D6C90D800656769 = {
@@ -262,10 +263,10 @@
 			isa = PBXGroup;
 			children = (
 				F93E484E1D6CA13600A05B7A /* Imagens */,
-				F98AC1091D6C918A00656769 /* gitignore */,
+				F98AC1091D6C918A00656769 /* .. */,
 				F98AC0D71D6C90D800656769 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		F98AC0EF1D6C90D900656769 /* desafio-iosTests */ = {
@@ -401,7 +402,7 @@
 				F98AC0E61D6C90D800656769 /* LaunchScreen.storyboard in Resources */,
 				F93E48521D6CA4D600A05B7A /* gitStar.png in Resources */,
 				F93E48501D6CA4D200A05B7A /* gitFork.png in Resources */,
-				F98AC10A1D6C918A00656769 /* gitignore in Resources */,
+				F98AC10A1D6C918A00656769 /* .. in Resources */,
 				F98AC0E31D6C90D800656769 /* Assets.xcassets in Resources */,
 				F98AC0E11D6C90D800656769 /* Main.storyboard in Resources */,
 			);
