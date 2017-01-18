@@ -32,7 +32,6 @@
 		F98AC0E61D6C90D800656769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F98AC0E41D6C90D800656769 /* LaunchScreen.storyboard */; };
 		F98AC0F11D6C90D900656769 /* desafio_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F98AC0F01D6C90D900656769 /* desafio_iosTests.m */; };
 		F98AC0FC1D6C90D900656769 /* desafio_iosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F98AC0FB1D6C90D900656769 /* desafio_iosUITests.m */; };
-		F98AC10A1D6C918A00656769 /* .. in Resources */ = {isa = PBXBuildFile; fileRef = F98AC1091D6C918A00656769 /* .. */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,6 +361,7 @@
 				TargetAttributes = {
 					F98AC0D21D6C90D800656769 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = D67XBEEN3L;
 					};
 					F98AC0EB1D6C90D900656769 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -402,7 +402,6 @@
 				F98AC0E61D6C90D800656769 /* LaunchScreen.storyboard in Resources */,
 				F93E48521D6CA4D600A05B7A /* gitStar.png in Resources */,
 				F93E48501D6CA4D200A05B7A /* gitFork.png in Resources */,
-				F98AC10A1D6C918A00656769 /* .. in Resources */,
 				F98AC0E31D6C90D800656769 /* Assets.xcassets in Resources */,
 				F98AC0E11D6C90D800656769 /* Main.storyboard in Resources */,
 			);
@@ -710,6 +709,7 @@
 			baseConfigurationReference = A7B7976B742DC8292DC6A584 /* Pods-desafio-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D67XBEEN3L;
 				INFOPLIST_FILE = "desafio-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -746,6 +746,7 @@
 			baseConfigurationReference = 5A55142F0A29BE2F2BBB892E /* Pods-desafio-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D67XBEEN3L;
 				INFOPLIST_FILE = "desafio-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
