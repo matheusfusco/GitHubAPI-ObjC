@@ -99,7 +99,6 @@
 		F98AC0F71D6C90D900656769 /* desafio-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98AC0FB1D6C90D900656769 /* desafio_iosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = desafio_iosUITests.m; sourceTree = "<group>"; };
 		F98AC0FD1D6C90D900656769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F98AC1091D6C918A00656769 /* .. */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ..; path = ../..; sourceTree = "<group>"; };
 		F9C4A4D028B6D1C1492394AE /* Pods-desafio-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosUITests/Pods-desafio-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				F93E484E1D6CA13600A05B7A /* Imagens */,
-				F98AC1091D6C918A00656769 /* .. */,
 				F98AC0D71D6C90D800656769 /* main.m */,
 			);
 			path = "Supporting Files";
