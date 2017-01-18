@@ -20,9 +20,13 @@
     //&order= 'asc' ou 'desc'
     
     [self get:URL_REPOSITORIES withParameters:params success:^(id responseObject) {
-        response(responseObject, nil);
+        if (responseObject) {
+            response(responseObject, nil);
+        }
     } error:^(NSError *errors) {
-        response(nil, errors);
+        if (errors) {
+            response(nil, errors);
+        }
     }];
 }
 @end

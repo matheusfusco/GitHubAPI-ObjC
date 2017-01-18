@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Repository.h"
 #import "RepositoryModel.h"
+#import "RepositoryTableViewCell.h"
+#import "PullRequestTableViewController.h"
 
 @interface RepositoryTableViewController : UITableViewController <RepositoryDelegate>
 

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PullRequestTableViewCell.h"
+#import "PullRequest.h"
+#import "PullRequestModel.h"
 
-@interface PullRequestTableViewController : UITableViewController
+@interface PullRequestTableViewController : UITableViewController <PullRequestDelegate>
 @property (nonatomic, strong) NSString * repositoryToLoad;
 @end

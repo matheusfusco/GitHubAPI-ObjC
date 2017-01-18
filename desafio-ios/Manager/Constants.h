@@ -15,5 +15,5 @@
 //&sort=stars
 //&page=1
 
-#define URL_PULL_REQUESTS @"https://api.github.com/repos/"//repository 'full_name'/pulls", 
+#define URL_PULL_REQUESTS @"https://api.github.com/repos"//.../repository 'full_name'/pulls", 
 #endif /* Constants_h */

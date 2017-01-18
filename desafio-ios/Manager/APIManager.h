@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
+#import "Constants.h"
 
 @interface APIManager : NSObject
 +(void) get:(NSString *) service withParameters:(NSDictionary *) params success:(void(^)(id responseObject)) success error:(void (^)(NSError * error)) error;

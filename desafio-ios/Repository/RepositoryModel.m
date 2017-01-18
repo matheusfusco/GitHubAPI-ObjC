@@ -18,21 +18,26 @@
     NSMutableArray * repositories = [[NSMutableArray alloc] init];
     
     UIViewController * curVC = [UIApplication sharedApplication].keyWindow.rootViewController;
-    MBProgressHUD * prog = [MBProgressHUD showHUDAddedTo:curVC.view animated:YES];
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:curVC.view animated:YES];
     [RepositoryService searchRepositoriesFor:@"Java" sortingBy:@"stars" orderingBy:@"asc" andPage:page response:^(id responseObject, NSError *error) {
-        //NSLog(@"resp: %@", [[responseObject objectForKey:@"items"] objectAtIndex:0]);
-        NSMutableArray * repoArray = [[NSMutableArray alloc] initWithArray:[responseObject objectForKey:@"items"]];
-        //NSLog(@"repoArray: %@", repoArray);
-        for (int i = 0; i < repoArray.count; i++) {
-            NSDictionary * dict = [[NSDictionary alloc] init];
-            dict = [repoArray objectAtIndex:i];
-
-            Repository * rp = [MTLJSONAdapter modelOfClass:[Repository class] fromJSONDictionary:dict error:&error];
-            //NSLog(@"rp: %@", rp);
-            [repositories addObject:rp];
+        if (error) {
+            NSLog(@"error: %@", error);
         }
-        [prog hideAnimated:YES];
-        [self.delegate fetchedRepositories:repositories];
+        else{
+            //NSLog(@"resp: %@", [[responseObject objectForKey:@"items"] objectAtIndex:0]);
+            NSMutableArray * repoArray = [[NSMutableArray alloc] initWithArray:[responseObject objectForKey:@"items"]];
+            //NSLog(@"repoArray: %@", repoArray);
+            for (int i = 0; i < repoArray.count; i++) {
+                NSDictionary * dict = [[NSDictionary alloc] init];
+                dict = [repoArray objectAtIndex:i];
+                
+                Repository * rp = [MTLJSONAdapter modelOfClass:[Repository class] fromJSONDictionary:dict error:&error];
+                //NSLog(@"rp: %@", rp);
+                [repositories addObject:rp];
+            }
+            [hud hideAnimated:YES];
+            [self.delegate fetchedRepositories:repositories];
+        }
     }];
 }
 @end

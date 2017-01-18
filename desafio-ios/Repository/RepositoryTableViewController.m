@@ -7,9 +7,7 @@
 //
 
 #import "RepositoryTableViewController.h"
-#import "RepositoryTableViewCell.h"
-#import "Repository.h"
-#import "PullRequestTableViewController.h"
+
 
 @interface RepositoryTableViewController ()
 {
