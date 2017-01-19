@@ -19,6 +19,7 @@
 
 @implementation PullRequestTableViewController
 
+#pragma mark - Initialization & View Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     pulls = [[NSMutableArray alloc] init];
@@ -34,19 +35,16 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (pulls.count > 0) {
         return pulls.count;
     }
-    else
-    {
+    else {
         return 0;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString * CellIdentifier = @"pullRequestCell";
     
     PullRequestTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -62,8 +60,7 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     pullRequest = [pulls objectAtIndex:indexPath.row];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:pullRequest.URL]];
@@ -81,7 +78,6 @@
 #pragma mark - Memory Management
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -21,11 +21,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
--(void)setPullRequest:(PullRequest *)pullRequest
-{
+-(void)setPullRequest:(PullRequest *)pullRequest {
     _pullRequestTitle.text = pullRequest.title;
     
     _pullRequestDescription.text = pullRequest.body;
@@ -39,12 +37,9 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
 }
 
--(NSString *) convertDate :(NSString *)dateToConvert
-{
+-(NSString *) convertDate :(NSString *)dateToConvert {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY-MM-dd'T'HH:mm:ss'Z'"];
     NSDate *prevday = [formatter dateFromString:dateToConvert];

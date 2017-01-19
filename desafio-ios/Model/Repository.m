@@ -10,8 +10,7 @@
 
 @implementation Repository
 
-+(NSDictionary *) JSONKeyPathsByPropertyKey
-{
++(NSDictionary *) JSONKeyPathsByPropertyKey {
     return @{
              @"name"            : @"full_name",
              @"descr"           : @"description",
@@ -23,8 +22,7 @@
              };
 }
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error
-{
+-(instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error {
     self = [super initWithDictionary:dictionaryValue error:error];
     if (self == nil) return nil;
     return self;

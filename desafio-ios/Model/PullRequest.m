@@ -9,8 +9,7 @@
 #import "PullRequest.h"
 
 @implementation PullRequest
-+(NSDictionary *) JSONKeyPathsByPropertyKey
-{
++(NSDictionary *) JSONKeyPathsByPropertyKey {
     return @{
              @"title" : @"title",
              @"date" : @"created_at",
@@ -21,8 +20,7 @@
              };
 }
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error
-{
+-(instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error {
     self = [super initWithDictionary:dictionaryValue error:error];
     if (self == nil) return nil;
     return self;

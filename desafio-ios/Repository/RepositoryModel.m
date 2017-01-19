@@ -23,7 +23,7 @@
         if (error) {
             NSLog(@"error: %@", error);
         }
-        else{
+        else {
             //NSLog(@"resp: %@", [[responseObject objectForKey:@"items"] objectAtIndex:0]);
             NSMutableArray * repoArray = [[NSMutableArray alloc] initWithArray:[responseObject objectForKey:@"items"]];
             //NSLog(@"repoArray: %@", repoArray);

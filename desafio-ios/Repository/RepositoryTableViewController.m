@@ -21,8 +21,12 @@
 
 @implementation RepositoryTableViewController
 
+#pragma mark - Initialization & View Methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     page = 1;
     repositories = [[NSMutableArray alloc] init];
@@ -33,24 +37,20 @@
 
 #pragma mark - TableView Data Source & Delegate Methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (repositories.count > 0) {
         return repositories.count;
     }
-    else
-    {
+    else {
         return 0;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString * CellIdentifier = @"repositoryCell";
     
     RepositoryTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -59,22 +59,19 @@
         cell = [[RepositoryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    repository = [[Repository alloc] init];
     repository = [repositories objectAtIndex:indexPath.row];
     [cell setRepository:repository];
     
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     repository = [repositories objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"loadRepositoryPRs" sender:self];
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([indexPath isEqual:[NSIndexPath indexPathForRow:[self tableView:self.tableView numberOfRowsInSection:0] -1 inSection: 0]])
     {
         page += 1;
@@ -91,13 +88,8 @@
 }
 
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if ([segue.destinationViewController isKindOfClass:[PullRequestTableViewController class]]) {
-        // Configure Books View Controller
         [(PullRequestTableViewController *)segue.destinationViewController setRepositoryToLoad:repository.name];
     }
 }
@@ -105,7 +97,6 @@
 #pragma mark - Memory Management
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
