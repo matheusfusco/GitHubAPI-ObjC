@@ -46,7 +46,7 @@
     
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
-    [model fetchRepositoriesOf:languageToSearch andSortingBy:sortToSearch andOrderingBy:orderToSearch withKeyWord: @"" andPage:page];
+    [model fetchRepositoriesOf:@"" andSortingBy:@"" andOrderingBy:@"" withKeyWord: @"" andPage:page];
 }
 #pragma mark - Custom Methods
 -(void) initVariables {
@@ -60,9 +60,11 @@
     sortArray = [[NSArray alloc] initWithObjects: @"", @"Stars", @"Forks", @"Updated", nil];
     orderArray = [[NSArray alloc] initWithObjects: @"", @"Asc", @"Desc", nil];
     
-    languageToSearch =  @"";
-    
     page = 1;
+    
+    languageToSearch = @"";
+    orderToSearch = @"";
+    sortToSearch = @"";
     
     [languageTextField setText:languageToSearch];
     [sortByTextField setText:sortToSearch];
