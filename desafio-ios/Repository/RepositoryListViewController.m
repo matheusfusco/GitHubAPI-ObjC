@@ -40,14 +40,17 @@
     [super viewDidLoad];
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(dismissKeyboard) name:UIKeyboardWillHideNotification object:nil];
+    
+    
     
     [self initVariables];
     [self initPicker];
     
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    
     [model fetchRepositoriesOf:@"" andSortingBy:@"" andOrderingBy:@"" withKeyWord: @"" andPage:page];
 }
+
 #pragma mark - Custom Methods
 -(void) initVariables {
     repositories = [[NSMutableArray alloc] init];
@@ -69,6 +72,8 @@
     [languageTextField setText:languageToSearch];
     [sortByTextField setText:sortToSearch];
     [orderByTextField setText:orderToSearch];
+    
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
 }
 -(void) initPicker {
     customPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];
@@ -99,22 +104,29 @@
     
     [self.view removeGestureRecognizer:tap];
 }
+
 #pragma mark - Button Actions
 - (IBAction)searchRepositoryButtonClicked:(id)sender {
-        [UIView animateWithDuration:0.3 animations:^{
-        if (searchRepository.isHidden) {
-            [searchRepository setHidden:NO];
-            [languageTextField setHidden:NO];
-            [orderByTextField setHidden:NO];
-            [sortByTextField setHidden:NO];
-        }
-        else {
-            [searchRepository setHidden:YES];
-            [languageTextField setHidden:YES];
-            [orderByTextField setHidden:YES];
-            [sortByTextField setHidden:YES];
-        }
-    }];
+//    [UIView animateWithDuration:0.3 animations:^{
+//        if (searchRepository.isHidden) {
+//            [searchRepository setHidden:NO];
+//            [languageTextField setHidden:NO];
+//            [orderByTextField setHidden:NO];
+//            [sortByTextField setHidden:NO];
+//            
+//            repositoryTableView.contentInset = UIEdgeInsetsMake(_filterStackView.frame.size.height + self.navigationController.navigationBar.frame.size.height + 20.0f, 0.0f, 0.0f, 0.0f);
+//            
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//            [self.repositoryTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+//        }
+//        else {
+//            [searchRepository setHidden:YES];
+//            [languageTextField setHidden:YES];
+//            [orderByTextField setHidden:YES];
+//            [sortByTextField setHidden:YES];
+//            repositoryTableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+//        }
+//    }];
 }
 
 #pragma mark - TableView Data Source & Delegate Methods
@@ -230,6 +242,15 @@
         [repositories addObject:repo];
     }
     [repositoryTableView reloadData];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.repositoryTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
+    [searchRepository setHidden:NO];
+    [languageTextField setHidden:NO];
+    [orderByTextField setHidden:NO];
+    [sortByTextField setHidden:NO];
+
 }
 
 #pragma mark - Navigation

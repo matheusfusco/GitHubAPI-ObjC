@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *sortByTextField;
 @property (weak, nonatomic) IBOutlet UITextField *orderByTextField;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchRepository;
+@property (weak, nonatomic) IBOutlet UIStackView *filterStackView;
 
 - (IBAction)searchRepositoryButtonClicked:(id)sender;
+-(void)dismissKeyboard;
 @end
