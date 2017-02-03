@@ -9,17 +9,33 @@
 #import "RepositoryService.h"
 
 @implementation RepositoryService
-+(void) searchRepositoriesFor:(NSString *) language sortingBy:(NSString *) sort orderingBy:(NSString *) order andPage:(NSInteger) page response:(void(^) (id responseObject, NSError * error)) response {
-    NSDictionary * params = @{@"q" : [NSString stringWithFormat:@"language:%@", language],
-                              @"sort" : sort,
-                              @"page" : [NSString stringWithFormat:@"%ld", (long)page],
-                              };
++(void) searchRepositoriesFor:(NSString *) language sortingBy:(NSString *) sort orderingBy:(NSString *) order withKeyWord:(NSString *) keyWord andPage:(NSInteger) page response:(void(^) (id responseObject, NSError * error)) response {
+    
+    NSMutableDictionary * parameters = [[NSMutableDictionary alloc] init];
+    if (keyWord == NULL || keyWord == nil || [keyWord isEqualToString:@""]) {
+        parameters[@"q"] = [NSString stringWithFormat:@"language:%@", language];
+    }
+    else {
+        parameters[@"q"] = [NSString stringWithFormat:@"%@+language:%@", keyWord, language];
+    }
+    
+    if (![sort isEqualToString:@""]) {
+        parameters[@"sort"] = sort;
+    }
+    
+    if (![order isEqualToString:@""]) {
+        parameters[@"order"] = order;
+    }
+    
+    parameters[@"page"] = [NSString stringWithFormat:@"%ld", (long)page];
+    
+    
     //q=language:Java //OU// q=language:Swift //OU// q=language:ObjectiveC
     //&sort= 'stars', 'forks' ou 'updated'
     //&page=1
     //&order= 'asc' ou 'desc'
-    
-    [self get:URL_REPOSITORIES withParameters:params success:^(id responseObject) {
+
+    [self get:URL_REPOSITORIES withParameters:parameters success:^(id responseObject) {
         if (responseObject) {
             response(responseObject, nil);
         }

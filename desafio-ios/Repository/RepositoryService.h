@@ -9,5 +9,5 @@
 #import "APIManager.h"
 
 @interface RepositoryService : APIManager
-+(void) searchRepositoriesFor:(NSString *) language sortingBy:(NSString *) sort orderingBy:(NSString *) order andPage:(NSInteger) page response:(void(^) (id responseObject, NSError * error)) response;
++(void) searchRepositoriesFor:(NSString *) language sortingBy:(NSString *) sort orderingBy:(NSString *) order withKeyWord:(NSString *) keyWord andPage:(NSInteger) page response:(void(^) (id responseObject, NSError * error)) response;
 @end

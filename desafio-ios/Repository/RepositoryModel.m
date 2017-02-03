@@ -14,12 +14,12 @@
 @implementation RepositoryModel
 @synthesize delegate;
 
--(void) fetchRepositories:(NSInteger) page {
+-(void) fetchRepositoriesOf: (NSString *) language andSortingBy:(NSString *) sortBy andOrderingBy:(NSString *) orderBy withKeyWord:(NSString *) keyWord andPage:(NSInteger) page {
     NSMutableArray * repositories = [[NSMutableArray alloc] init];
     
     UIViewController * curVC = [UIApplication sharedApplication].keyWindow.rootViewController;
     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:curVC.view animated:YES];
-    [RepositoryService searchRepositoriesFor:@"Java" sortingBy:@"stars" orderingBy:@"asc" andPage:page response:^(id responseObject, NSError *error) {
+    [RepositoryService searchRepositoriesFor:language sortingBy:sortBy orderingBy:orderBy withKeyWord: keyWord andPage:page response:^(id responseObject, NSError *error) {
         if (error) {
             NSLog(@"error: %@", error);
         }

@@ -16,5 +16,5 @@
 
 @interface RepositoryModel : NSObject
 @property (nonatomic, retain) id <RepositoryDelegate> delegate;
--(void) fetchRepositories:(NSInteger) page;
+-(void) fetchRepositoriesOf: (NSString *) language andSortingBy:(NSString *) sortBy andOrderingBy:(NSString *) orderBy withKeyWord:(NSString *) keyWord andPage:(NSInteger) page;
 @end

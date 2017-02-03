@@ -14,6 +14,7 @@
 //q=language:Java //OU// q=language:Swift //OU// q=language:ObjectiveC
 //&sort=stars
 //&page=1
+//&order=asc //OU// desc
 
 #define URL_PULL_REQUESTS @"https://api.github.com/repos"//.../repository 'full_name'/pulls", 
 #endif /* Constants_h */

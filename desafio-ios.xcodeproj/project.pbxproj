@@ -13,13 +13,13 @@
 		5EDE42F41E2D638B008ED7F4 /* RepositoryService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDE42F31E2D638B008ED7F4 /* RepositoryService.m */; };
 		5EE86ED31E3001AD00E01C7A /* PullRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE86ED21E3001AD00E01C7A /* PullRequestService.m */; };
 		5EE86ED61E30020400E01C7A /* PullRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE86ED51E30020400E01C7A /* PullRequestModel.m */; };
+		5EFBAA6D1E3291A40039A0D3 /* RepositoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBAA6C1E3291A40039A0D3 /* RepositoryListViewController.m */; };
 		E04CDB13941D664BD3275C40 /* libPods-desafio-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4C2328FE19AF5E5627824D /* libPods-desafio-iosTests.a */; };
 		F189C8A423793722CCA7CC62 /* libPods-desafio-iosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45478599DD58D608D4DBD9E7 /* libPods-desafio-iosUITests.a */; };
 		F93E48501D6CA4D200A05B7A /* gitFork.png in Resources */ = {isa = PBXBuildFile; fileRef = F93E484F1D6CA4D200A05B7A /* gitFork.png */; };
 		F93E48521D6CA4D600A05B7A /* gitStar.png in Resources */ = {isa = PBXBuildFile; fileRef = F93E48511D6CA4D600A05B7A /* gitStar.png */; };
 		F93E48541D6CA4DB00A05B7A /* userPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = F93E48531D6CA4DB00A05B7A /* userPhoto.png */; };
 		F93E485A1D6CAB0900A05B7A /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = F93E48591D6CAB0900A05B7A /* Repository.m */; };
-		F93E485D1D6CAB6E00A05B7A /* RepositoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93E485C1D6CAB6E00A05B7A /* RepositoryTableViewController.m */; };
 		F93E48611D6CAFC600A05B7A /* RepositoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93E48601D6CAFC600A05B7A /* RepositoryTableViewCell.m */; };
 		F93E48631D6CB78A00A05B7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F93E48621D6CB78A00A05B7A /* Foundation.framework */; };
 		F93E48651D6CB79100A05B7A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F93E48641D6CB79100A05B7A /* UIKit.framework */; };
@@ -68,6 +68,8 @@
 		5EE86ED21E3001AD00E01C7A /* PullRequestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRequestService.m; sourceTree = "<group>"; };
 		5EE86ED41E30020400E01C7A /* PullRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRequestModel.h; sourceTree = "<group>"; };
 		5EE86ED51E30020400E01C7A /* PullRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRequestModel.m; sourceTree = "<group>"; };
+		5EFBAA6B1E3291A40039A0D3 /* RepositoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryListViewController.h; sourceTree = "<group>"; };
+		5EFBAA6C1E3291A40039A0D3 /* RepositoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryListViewController.m; sourceTree = "<group>"; };
 		8C1723F5FF39D627CEA4BD57 /* Pods-desafio-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosUITests/Pods-desafio-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A1B8B18E5E3C2F226AB70965 /* Pods-desafio-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-iosTests/Pods-desafio-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7B7976B742DC8292DC6A584 /* Pods-desafio-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-ios/Pods-desafio-ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,8 +80,6 @@
 		F93E48531D6CA4DB00A05B7A /* userPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userPhoto.png; sourceTree = "<group>"; };
 		F93E48581D6CAB0900A05B7A /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		F93E48591D6CAB0900A05B7A /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
-		F93E485B1D6CAB6E00A05B7A /* RepositoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryTableViewController.h; sourceTree = "<group>"; };
-		F93E485C1D6CAB6E00A05B7A /* RepositoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryTableViewController.m; sourceTree = "<group>"; };
 		F93E485F1D6CAFC600A05B7A /* RepositoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryTableViewCell.h; sourceTree = "<group>"; };
 		F93E48601D6CAFC600A05B7A /* RepositoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryTableViewCell.m; sourceTree = "<group>"; };
 		F93E48621D6CB78A00A05B7A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -199,8 +199,8 @@
 		F93E485E1D6CAB7400A05B7A /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				F93E485B1D6CAB6E00A05B7A /* RepositoryTableViewController.h */,
-				F93E485C1D6CAB6E00A05B7A /* RepositoryTableViewController.m */,
+				5EFBAA6B1E3291A40039A0D3 /* RepositoryListViewController.h */,
+				5EFBAA6C1E3291A40039A0D3 /* RepositoryListViewController.m */,
 				5E02ADCD1E2E80C20045DDB5 /* RepositoryModel.h */,
 				5E02ADCE1E2E80C20045DDB5 /* RepositoryModel.m */,
 				5EDE42F21E2D638B008ED7F4 /* RepositoryService.h */,
@@ -559,11 +559,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EFBAA6D1E3291A40039A0D3 /* RepositoryListViewController.m in Sources */,
 				5E02ADCF1E2E80C20045DDB5 /* RepositoryModel.m in Sources */,
 				F95787101D6DE74F001E7D3D /* PullRequestTableViewController.m in Sources */,
 				F98AC0DB1D6C90D800656769 /* AppDelegate.m in Sources */,
 				5EDE42F01E2D0E80008ED7F4 /* APIManager.m in Sources */,
-				F93E485D1D6CAB6E00A05B7A /* RepositoryTableViewController.m in Sources */,
 				F98AC0D81D6C90D800656769 /* main.m in Sources */,
 				5EE86ED31E3001AD00E01C7A /* PullRequestService.m in Sources */,
 				5EDE42F41E2D638B008ED7F4 /* RepositoryService.m in Sources */,

@@ -53,7 +53,6 @@
         cell = [[PullRequestTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    pullRequest = [[PullRequest alloc] init];
     pullRequest = [pulls objectAtIndex:indexPath.row];
     [cell setPullRequest:pullRequest];
     
