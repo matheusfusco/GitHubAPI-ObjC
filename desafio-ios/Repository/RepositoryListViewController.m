@@ -123,11 +123,14 @@
 
 #pragma mark - Button Actions
 - (IBAction)searchRepositoryButtonClicked:(id)sender {
+    NSLog(@"touch");
     if (_filterStackView.isHidden) {
         [self hideFilters:NO];
+        NSLog(@"show filters");
     }
     else {
         [self hideFilters:YES];
+        NSLog(@"hide filters");
     }
 }
 
@@ -274,8 +277,6 @@
     [languageTextField setHidden:NO];
     [orderByTextField setHidden:NO];
     [sortByTextField setHidden:NO];
-    [self hideFilters:YES];
-
 }
 
 #pragma mark - Navigation
