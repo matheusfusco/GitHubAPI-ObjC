@@ -21,6 +21,5 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchRepository;
 @property (weak, nonatomic) IBOutlet UIStackView *filterStackView;
 
-- (IBAction)searchRepositoryButtonClicked:(id)sender;
--(void)dismissKeyboard;
+- (IBAction)showFiltersButtonClicked:(id)sender;
 @end

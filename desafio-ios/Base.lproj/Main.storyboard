@@ -174,7 +174,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cBJ-kE-pNp">
                                         <rect key="frame" x="0.0" y="88" width="375" height="515"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="127" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5XY-Ui-4MP">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="127" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5XY-Ui-4MP">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="515"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
@@ -304,7 +304,7 @@
                     <navigationItem key="navigationItem" title="GitHUB" id="Frs-fB-cwL">
                         <barButtonItem key="rightBarButtonItem" image="search" id="duG-ak-Y4F">
                             <connections>
-                                <action selector="searchRepositoryButtonClicked:" destination="7pF-vZ-ge6" id="Kbo-jq-tth"/>
+                                <action selector="showFiltersButtonClicked:" destination="7pF-vZ-ge6" id="2Qj-9K-pDN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

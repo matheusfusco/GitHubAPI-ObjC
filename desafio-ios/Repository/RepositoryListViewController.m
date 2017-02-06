@@ -28,6 +28,8 @@
     NSString * orderToSearch;
     
     UITapGestureRecognizer * tap;
+    
+    BOOL shouldShowFilters;
 }
 
 @end
@@ -40,10 +42,6 @@
     [super viewDidLoad];
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self selector:@selector(dismissKeyboard) name:UIKeyboardWillHideNotification object:nil];
-    
-    
     
     [self initVariables];
     [self initPicker];
@@ -73,7 +71,9 @@
     [sortByTextField setText:sortToSearch];
     [orderByTextField setText:orderToSearch];
     
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fetchRepositories)];
+    
+    shouldShowFilters = NO;
 }
 -(void) initPicker {
     customPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];
@@ -87,7 +87,7 @@
     
     UIToolbar * toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
     [toolBar setBarStyle:UIBarStyleDefault];
-    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(dismissKeyboard)];
+    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Search" style:UIBarButtonItemStylePlain target:self action:@selector(fetchRepositories)];
     UIBarButtonItem * flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     toolBar.items = @[flexibleSpace, doneButton];
     languageTextField.inputAccessoryView = toolBar;
@@ -95,19 +95,20 @@
     sortByTextField.inputAccessoryView = toolBar;
 }
 
--(void)dismissKeyboard {
+-(void) fetchRepositories {
     [activeTextField resignFirstResponder];
     [searchRepository resignFirstResponder];
     
     [repositories removeAllObjects];
+    //[repositoryTableView reloadData];
     [model fetchRepositoriesOf:languageToSearch andSortingBy:sortToSearch andOrderingBy:orderToSearch withKeyWord: searchRepository.text andPage:page];
     
     [self.view removeGestureRecognizer:tap];
 }
 
--(void) hideFilters:(BOOL)show {
+-(void) setFilterHiddenTo :(BOOL)value {
     [UIView animateWithDuration:0.3f animations:^{
-        [_filterStackView setHidden:show];
+        [_filterStackView setHidden:value];
     }];
 }
 
@@ -122,15 +123,13 @@
 }
 
 #pragma mark - Button Actions
-- (IBAction)searchRepositoryButtonClicked:(id)sender {
-    NSLog(@"touch");
+- (IBAction)showFiltersButtonClicked:(id)sender {
+    //NSLog(@"touch");
     if (_filterStackView.isHidden) {
-        [self hideFilters:NO];
-        NSLog(@"show filters");
+        [self setFilterHiddenTo:NO];
     }
     else {
-        [self hideFilters:YES];
-        NSLog(@"hide filters");
+        [self setFilterHiddenTo:YES];
     }
 }
 
@@ -181,21 +180,23 @@
 }
 
 #pragma mark - ScrollView Delegate Methods
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     CGFloat yVelocity = [repositoryTableView.panGestureRecognizer velocityInView:repositoryTableView].y;
-    
-    if (yVelocity < 0) {
-        //NSLog(@"Down");
-        [self hideFilters:YES];
-    } else if (yVelocity > 0) {
-        //NSLog(@"Up");
+    if (repositories.count > 0) {
         if ([self isShowingFirstRow]) {
-            //NSLog(@"first row - show search");
-            [self hideFilters:NO];
+            //NSLog(@"first row - show search if scrolling from top to bottom - up");
+            if (yVelocity > 0) {
+                [self setFilterHiddenTo:NO];
+            }
+            else if (yVelocity < 0) {
+                [self setFilterHiddenTo:YES];
+            }
         }
-    } else {
-        //NSLog(@"Can't determine direction as velocity is 0");
+        else {
+            [self setFilterHiddenTo:YES];
+        }
     }
+    [self.view removeGestureRecognizer:tap];
 }
 
 #pragma mark - PickerView Delegate & DataSource Methods
@@ -270,6 +271,10 @@
         if (repositories.count > 0) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
             [self.repositoryTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            [self setFilterHiddenTo:YES];
+        }
+        else {
+            [self setFilterHiddenTo:NO];
         }
     }
     
