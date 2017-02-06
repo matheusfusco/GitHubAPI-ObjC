@@ -111,6 +111,33 @@
     }];
 }
 
+-(BOOL)isShowingFirstRow {
+    NSIndexPath * firstVisibleIndexPath = [[repositoryTableView indexPathsForVisibleRows] objectAtIndex:0];
+    if (firstVisibleIndexPath.row < 2){
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+-(void) checkScrollDirectionToShowOrHideFilters {
+    CGFloat yVelocity = [repositoryTableView.panGestureRecognizer velocityInView:repositoryTableView].y;
+    
+    if (yVelocity < 0) {
+        //NSLog(@"Down");
+        [self hideFilters:YES];
+    } else if (yVelocity > 0) {
+        //NSLog(@"Up");
+        if ([self isShowingFirstRow]) {
+            //NSLog(@"first row - show search");
+            [self hideFilters:NO];
+        }
+    } else {
+        //NSLog(@"Can't determine direction as velocity is 0");
+    }
+}
+
 #pragma mark - Button Actions
 - (IBAction)searchRepositoryButtonClicked:(id)sender {
     if (_filterStackView.isHidden) {
@@ -167,22 +194,15 @@
     }
 }
 
+#pragma mark - ScrollView Delegate Methods
+
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    CGFloat yVelocity = [scrollView.panGestureRecognizer velocityInView:scrollView].y;
-    
-    NSIndexPath * firstVisibleIndexPath = [[repositoryTableView indexPathsForVisibleRows] objectAtIndex:0];
-    
-    if (yVelocity < 0) {
-        //NSLog(@"Down");
-        [self hideFilters:YES];
-    } else if (yVelocity > 0) {
-        //NSLog(@"Up");
-        if (firstVisibleIndexPath.row == 0) {
-            //NSLog(@"first row - show search");
-            [self hideFilters:NO];
-        }
-    } else {
-        //NSLog(@"Can't determine direction as velocity is 0");
+    [self checkScrollDirectionToShowOrHideFilters];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (decelerate) {
+        [self checkScrollDirectionToShowOrHideFilters];
     }
 }
 
