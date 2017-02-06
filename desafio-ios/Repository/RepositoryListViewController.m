@@ -121,23 +121,6 @@
     }
 }
 
--(void) checkScrollDirectionToShowOrHideFilters {
-    CGFloat yVelocity = [repositoryTableView.panGestureRecognizer velocityInView:repositoryTableView].y;
-    
-    if (yVelocity < 0) {
-        //NSLog(@"Down");
-        [self hideFilters:YES];
-    } else if (yVelocity > 0) {
-        //NSLog(@"Up");
-        if ([self isShowingFirstRow]) {
-            //NSLog(@"first row - show search");
-            [self hideFilters:NO];
-        }
-    } else {
-        //NSLog(@"Can't determine direction as velocity is 0");
-    }
-}
-
 #pragma mark - Button Actions
 - (IBAction)searchRepositoryButtonClicked:(id)sender {
     if (_filterStackView.isHidden) {
@@ -195,14 +178,20 @@
 }
 
 #pragma mark - ScrollView Delegate Methods
-
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self checkScrollDirectionToShowOrHideFilters];
-}
-
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (decelerate) {
-        [self checkScrollDirectionToShowOrHideFilters];
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat yVelocity = [repositoryTableView.panGestureRecognizer velocityInView:repositoryTableView].y;
+    
+    if (yVelocity < 0) {
+        //NSLog(@"Down");
+        [self hideFilters:YES];
+    } else if (yVelocity > 0) {
+        //NSLog(@"Up");
+        if ([self isShowingFirstRow]) {
+            //NSLog(@"first row - show search");
+            [self hideFilters:NO];
+        }
+    } else {
+        //NSLog(@"Can't determine direction as velocity is 0");
     }
 }
 
@@ -275,14 +264,17 @@
     [repositoryTableView reloadData];
     
     if (page == 1) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [self.repositoryTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        if (repositories.count > 0) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [self.repositoryTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        }
     }
     
     [searchRepository setHidden:NO];
     [languageTextField setHidden:NO];
     [orderByTextField setHidden:NO];
     [sortByTextField setHidden:NO];
+    [self hideFilters:YES];
 
 }
 
