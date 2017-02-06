@@ -13,7 +13,7 @@
 #import "PullRequestTableViewController.h"
 #import <Foundation/Foundation.h>
 
-@interface RepositoryListViewController : UIViewController <RepositoryDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UISearchBarDelegate>
+@interface RepositoryListViewController : UIViewController <RepositoryDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UISearchBarDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *repositoryTableView;
 @property (weak, nonatomic) IBOutlet UITextField *languageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *sortByTextField;

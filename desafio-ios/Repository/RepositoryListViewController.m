@@ -105,28 +105,20 @@
     [self.view removeGestureRecognizer:tap];
 }
 
+-(void) hideFilters:(BOOL)show {
+    [UIView animateWithDuration:0.3f animations:^{
+        [_filterStackView setHidden:show];
+    }];
+}
+
 #pragma mark - Button Actions
 - (IBAction)searchRepositoryButtonClicked:(id)sender {
-//    [UIView animateWithDuration:0.3 animations:^{
-//        if (searchRepository.isHidden) {
-//            [searchRepository setHidden:NO];
-//            [languageTextField setHidden:NO];
-//            [orderByTextField setHidden:NO];
-//            [sortByTextField setHidden:NO];
-//            
-//            repositoryTableView.contentInset = UIEdgeInsetsMake(_filterStackView.frame.size.height + self.navigationController.navigationBar.frame.size.height + 20.0f, 0.0f, 0.0f, 0.0f);
-//            
-//            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//            [self.repositoryTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-//        }
-//        else {
-//            [searchRepository setHidden:YES];
-//            [languageTextField setHidden:YES];
-//            [orderByTextField setHidden:YES];
-//            [sortByTextField setHidden:YES];
-//            repositoryTableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
-//        }
-//    }];
+    if (_filterStackView.isHidden) {
+        [self hideFilters:NO];
+    }
+    else {
+        [self hideFilters:YES];
+    }
 }
 
 #pragma mark - TableView Data Source & Delegate Methods
@@ -172,6 +164,25 @@
             page += 1;
             [model fetchRepositoriesOf:languageToSearch andSortingBy:sortToSearch andOrderingBy:orderToSearch withKeyWord: searchRepository.text andPage:page];
         }
+    }
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    CGFloat yVelocity = [scrollView.panGestureRecognizer velocityInView:scrollView].y;
+    
+    NSIndexPath * firstVisibleIndexPath = [[repositoryTableView indexPathsForVisibleRows] objectAtIndex:0];
+    
+    if (yVelocity < 0) {
+        //NSLog(@"Down");
+        [self hideFilters:YES];
+    } else if (yVelocity > 0) {
+        //NSLog(@"Up");
+        if (firstVisibleIndexPath.row == 0) {
+            //NSLog(@"first row - show search");
+            [self hideFilters:NO];
+        }
+    } else {
+        //NSLog(@"Can't determine direction as velocity is 0");
     }
 }
 
@@ -243,8 +254,10 @@
     }
     [repositoryTableView reloadData];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.repositoryTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    if (page == 1) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.repositoryTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    }
     
     [searchRepository setHidden:NO];
     [languageTextField setHidden:NO];
